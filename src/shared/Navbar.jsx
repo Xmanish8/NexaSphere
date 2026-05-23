@@ -82,10 +82,12 @@ export default function Navbar({ activeTab, onTabChange, onToggleTheme, theme, o
   if (mobile) return (
     <nav className="ns-navbar-mobile">
       <div 
-      className="ns-mobile-top"
-      onClick={() => handleTab('Home')}
-      style={{ cursor: 'pointer' }}
-      aria-label="Go to homepage"
+      className="ns-mobile-tabs"
+      style={{
+      overflowX: 'auto',
+      scrollbarWidth: 'none',
+      WebkitOverflowScrolling: 'touch'
+      }}
       >
         <img src={BRAND_LOGO_ICON} alt="NexaSphere" className="ns-mobile-logo-ns"/>
         <span className="ns-mobile-brand"><span>NexaSphere</span></span>
