@@ -89,13 +89,30 @@ export default function Navbar({ activeTab, onTabChange, onToggleTheme, theme, o
       >
         <img src={BRAND_LOGO_ICON} alt="NexaSphere" className="ns-mobile-logo-ns"/>
         <span className="ns-mobile-brand"><span>NexaSphere</span></span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+
+        {/* Updated responsive wrapper */}
+        <div 
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '8px',
+            flexWrap: 'wrap'
+          }}
+        >
           <NotificationBell />
           <BookmarkToggle onToggle={onToggleBookmarks} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
         </div>
       </div>
-      <div className="ns-mobile-tabs">
+
+      {/* Improved mobile tab scrolling */}
+      <div 
+        className="ns-mobile-tabs"
+        style={{
+          overflowX: 'auto',
+          scrollbarWidth: 'none'
+        }}
+      >
         {TABS.map(t => (
           <button
             key={t}
@@ -105,8 +122,14 @@ export default function Navbar({ activeTab, onTabChange, onToggleTheme, theme, o
             {t}
           </button>
         ))}
-        <button className="ns-mobile-tab ns-mobile-cta" onClick={onJoin} aria-label="Join as Member">Join</button>
-        <button className="ns-mobile-tab ns-mobile-cta ns-mobile-cta-apply" onClick={onApply} aria-label="Apply for Core Team">Apply</button>
+
+        <button className="ns-mobile-tab ns-mobile-cta" onClick={onJoin} aria-label="Join as Member">
+          Join
+        </button>
+
+        <button className="ns-mobile-tab ns-mobile-cta ns-mobile-cta-apply" onClick={onApply} aria-label="Apply for Core Team">
+          Apply
+        </button>
       </div>
     </nav>
   );
@@ -142,9 +165,15 @@ export default function Navbar({ activeTab, onTabChange, onToggleTheme, theme, o
           <NotificationBell />
           <BookmarkToggle onToggle={onToggleBookmarks} />
           <div className="ns-nav-ctas">
-            <button className="btn btn-sm btn-outline ns-nav-cta-btn" onClick={onJoin} aria-label="Join as Member">Join</button>
-            <button className="btn btn-sm btn-primary ns-nav-cta-btn" onClick={onApply} aria-label="Apply for Core Team">Apply</button>
+            <button className="btn btn-sm btn-outline ns-nav-cta-btn" onClick={onJoin} aria-label="Join as Member">
+              Join
+            </button>
+
+            <button className="btn btn-sm btn-primary ns-nav-cta-btn" onClick={onApply} aria-label="Apply for Core Team">
+              Apply
+            </button>
           </div>
+
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
         </div>
       </div>
